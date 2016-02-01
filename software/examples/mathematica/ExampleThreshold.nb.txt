@@ -1,0 +1,30 @@
+Needs["NETLink`"]
+LoadNETAssembly["Tinkerforge",NotebookDirectory[]<>"../../.."]
+
+host="localhost"
+port=4223
+uid="XYZ"(*Change to your UID*)
+
+(*Create IPConnection and device object*)
+ipcon=NETNew["Tinkerforge.IPConnection"]
+p=NETNew["Tinkerforge.BrickletPressure",uid,ipcon]
+ipcon@Connect[host,port]
+
+(*Get threshold callbacks with a debounce time of 10 seconds (10000ms)*)
+p@SetDebouncePeriod[10000]
+
+(*Callback function for pressure reached callback (parameter has unit Pa)*)
+PressureReachedCB[sender_,pressure_]:=
+ Print["Pressure: "<>ToString[N[Quantity[pressure,"kPa/1000"]]]]
+AddEventHandler[p@PressureReached,PressureReachedCB]
+
+(*Configure threshold for pressure "greater than 10 kPa" (unit is Pa)*)
+option=Tinkerforge`BrickletPressure`THRESHOLDUOPTIONUGREATER
+p@SetPressureCallbackThreshold[option,10*1000,0]
+
+Input["Click OK to exit"]
+
+(*Clean up*)
+ipcon@Disconnect[]
+ReleaseNETObject[p]
+ReleaseNETObject[ipcon]
