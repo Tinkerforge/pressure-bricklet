@@ -51,6 +51,7 @@
 
 #define SENSOR_TYPE_MPX5500 0
 #define SENSOR_TYPE_MPXV5004 1
+#define SENSOR_TYPE_MPX4115A 2
 
 typedef struct {
 	MessageHeader header;

@@ -137,45 +137,56 @@ int32_t analog_value_from_mc(const int32_t value) {
 	return (BC->moving_average_sum + BC->moving_average_upto/2)/BC->moving_average_upto;
 }
 
+int32_t rounding(int32_t value, const int32_t resolution) {
+	int32_t remainder = value % resolution;
+
+	if (remainder >= 0) {
+		if (remainder >= resolution / 2) {
+			value += resolution - remainder;
+		} else {
+			value -= remainder;
+		}
+	} else {
+		if (remainder <= -(resolution / 2)) {
+			value -= resolution + remainder;
+		} else {
+			value += -remainder;
+		}
+	}
+
+	return value;
+}
+
 int32_t pressure_from_analog_value(const int32_t value) {
 	// assumed values are operating voltage of 3.3V and 33/51 opamp multiplier
 	int32_t voltage = (MAX_ADC_VALUE - value) * 3300 * 51 / (MAX_ADC_VALUE * 31);
 	int32_t pressure = 0;
 
 	if (BC->sensor == SENSOR_TYPE_MPX5500) {
-		// MPX5500 (0-500000 Pa)
-		// V  = 5.0 * (0.0018 * kPa + 0.04)
+		// MPX5500 (0 to 500000 Pa)
+		// V = 5.0 * (0.0018 * kPa + 0.04)
 		// Pa = (2000 * mV - 400000) / 18
-		pressure = (2000 * voltage - 400000) / 18;
-
-		// We only have resolution of ~100 Pa, remove unreliable counts
-		int8_t last_two_digits = pressure % 100;
-
-		if (last_two_digits >= 0) {
-			if (last_two_digits >= 50) {
-				pressure += 100 - last_two_digits;
-			} else {
-				pressure -= last_two_digits;
-			}
-		} else {
-			if (last_two_digits <= -50) {
-				pressure -= 100 + last_two_digits;
-			} else {
-				pressure += -last_two_digits;
-			}
-		}
+		// Resolution = 500000 / 4096 = ~122
+		pressure = rounding((2000 * voltage - 400000) / 18, 122);
 	} else if (BC->sensor == SENSOR_TYPE_MPXV5004) {
-		// MPXV5004 (0-3920 Pa)
-		// V  = 5.0 * (0.2 * kPa + 0.2)
+		// MPXV5004 (0 to 3920 Pa)
+		// V = 5.0 * (0.2 * kPa + 0.2)
 		// Pa = mV - 1000
+		// Resolution = 3920 / 4096 < 1
 		pressure = voltage - 1000;
+	} else if (BC->sensor == SENSOR_TYPE_MPX4115A) {
+		// MPX4115A (15000 to 115000 Pa)
+		// V = 5.0 * (0.009 * kPa - 0.095)
+		// Pa = (2000 * mV + 950000) / 90
+		// Resolution = 100000 / 4096 = ~24
+		pressure = rounding((2000 * voltage + 950000) / 90, 24);
 	}
 
 	return pressure;
 }
 
 void set_sensor_type(const ComType com, const SetSensorType *data) {
-	if (data->sensor > SENSOR_TYPE_MPXV5004) {
+	if (data->sensor > SENSOR_TYPE_MPX4115A) {
 		BA->com_return_error(data, sizeof(MessageHeader), MESSAGE_ERROR_CODE_INVALID_PARAMETER, com);
 		return;
 	}
