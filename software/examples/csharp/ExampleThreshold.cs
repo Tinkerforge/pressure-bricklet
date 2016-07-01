@@ -5,7 +5,7 @@ class Example
 {
 	private static string HOST = "localhost";
 	private static int PORT = 4223;
-	private static string UID = "XYZ"; // Change to your UID
+	private static string UID = "XYZ"; // Change XYZ to the UID of your Pressure Bricklet
 
 	// Callback function for pressure reached callback (parameter has unit Pa)
 	static void PressureReachedCB(BrickletPressure sender, int pressure)

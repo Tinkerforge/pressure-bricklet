@@ -4,7 +4,7 @@ Imports Tinkerforge
 Module ExampleThreshold
     Const HOST As String = "localhost"
     Const PORT As Integer = 4223
-    Const UID As String = "XYZ" ' Change to your UID
+    Const UID As String = "XYZ" ' Change XYZ to the UID of your Pressure Bricklet
 
     ' Callback subroutine for pressure reached callback (parameter has unit Pa)
     Sub PressureReachedCB(ByVal sender As BrickletPressure, ByVal pressure As Integer)

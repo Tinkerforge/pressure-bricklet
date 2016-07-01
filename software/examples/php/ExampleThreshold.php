@@ -8,7 +8,7 @@ use Tinkerforge\BrickletPressure;
 
 const HOST = 'localhost';
 const PORT = 4223;
-const UID = 'XYZ'; // Change to your UID
+const UID = 'XYZ'; // Change XYZ to the UID of your Pressure Bricklet
 
 // Callback function for pressure reached callback (parameter has unit Pa)
 function cb_pressureReached($pressure)

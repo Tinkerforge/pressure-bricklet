@@ -5,7 +5,7 @@ use Tinkerforge::BrickletPressure;
 
 use constant HOST => 'localhost';
 use constant PORT => 4223;
-use constant UID => 'XYZ'; # Change to your UID
+use constant UID => 'XYZ'; # Change XYZ to the UID of your Pressure Bricklet
 
 # Callback subroutine for pressure callback (parameter has unit Pa)
 sub cb_pressure

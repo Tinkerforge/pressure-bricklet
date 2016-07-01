@@ -5,7 +5,7 @@
 
 #define HOST "localhost"
 #define PORT 4223
-#define UID "XYZ" // Change to your UID
+#define UID "XYZ" // Change XYZ to the UID of your Pressure Bricklet
 
 // Callback function for pressure callback (parameter has unit Pa)
 void cb_pressure(int32_t pressure, void *user_data) {
