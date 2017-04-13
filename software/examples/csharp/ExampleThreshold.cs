@@ -25,7 +25,7 @@ class Example
 		p.SetDebouncePeriod(10000);
 
 		// Register pressure reached callback to function PressureReachedCB
-		p.PressureReached += PressureReachedCB;
+		p.PressureReachedCallback += PressureReachedCB;
 
 		// Configure threshold for pressure "greater than 10 kPa" (unit is Pa)
 		p.SetPressureCallbackThreshold('>', 10*1000, 0);

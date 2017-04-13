@@ -22,7 +22,7 @@ class Example
 		// Don't use device before ipcon is connected
 
 		// Register pressure callback to function PressureCB
-		p.Pressure += PressureCB;
+		p.PressureCallback += PressureCB;
 
 		// Set period for pressure callback to 1s (1000ms)
 		// Note: The pressure callback is only called every second
