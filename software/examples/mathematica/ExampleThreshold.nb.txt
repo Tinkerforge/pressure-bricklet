@@ -16,7 +16,7 @@ p@SetDebouncePeriod[10000]
 (*Callback function for pressure reached callback (parameter has unit Pa)*)
 PressureReachedCB[sender_,pressure_]:=
  Print["Pressure: "<>ToString[N[Quantity[pressure,"kPa/1000"]]]]
-AddEventHandler[p@PressureReached,PressureReachedCB]
+AddEventHandler[p@PressureReachedCallback,PressureReachedCB]
 
 (*Configure threshold for pressure "greater than 10 kPa" (unit is Pa)*)
 option=Tinkerforge`BrickletPressure`THRESHOLDUOPTIONUGREATER

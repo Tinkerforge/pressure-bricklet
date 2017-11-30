@@ -22,7 +22,7 @@ Module ExampleThreshold
         p.SetDebouncePeriod(10000)
 
         ' Register pressure reached callback to subroutine PressureReachedCB
-        AddHandler p.PressureReached, AddressOf PressureReachedCB
+        AddHandler p.PressureReachedCallback, AddressOf PressureReachedCB
 
         ' Configure threshold for pressure "greater than 10 kPa" (unit is Pa)
         p.SetPressureCallbackThreshold(">"C, 10*1000, 0)

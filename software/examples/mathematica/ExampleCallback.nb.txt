@@ -13,7 +13,7 @@ ipcon@Connect[host,port]
 (*Callback function for pressure callback (parameter has unit Pa)*)
 PressureCB[sender_,pressure_]:=
  Print["Pressure: "<>ToString[N[Quantity[pressure,"kPa/1000"]]]]
-AddEventHandler[p@Pressure,PressureCB]
+AddEventHandler[p@PressureCallback,PressureCB]
 
 (*Set period for pressure callback to 1s (1000ms)*)
 (*Note: The pressure callback is only called every second*)

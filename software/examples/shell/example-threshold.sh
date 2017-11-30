@@ -10,7 +10,7 @@ tinkerforge call pressure-bricklet $uid set-debounce-period 10000
 tinkerforge dispatch pressure-bricklet $uid pressure-reached &
 
 # Configure threshold for pressure "greater than 10 kPa" (unit is Pa)
-tinkerforge call pressure-bricklet $uid set-pressure-callback-threshold greater 10000 0
+tinkerforge call pressure-bricklet $uid set-pressure-callback-threshold threshold-option-greater 10000 0
 
 echo "Press key to exit"; read dummy
 
