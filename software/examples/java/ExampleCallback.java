@@ -17,7 +17,7 @@ public class ExampleCallback {
 		ipcon.connect(HOST, PORT); // Connect to brickd
 		// Don't use device before ipcon is connected
 
-		// Add pressure listener (parameter has unit Pa)
+		// Add pressure listener
 		p.addPressureListener(new BrickletPressure.PressureListener() {
 			public void pressure(int pressure) {
 				System.out.println("Pressure: " + pressure/1000.0 + " kPa");

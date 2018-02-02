@@ -36,7 +36,7 @@ begin
   ipcon.Connect(HOST, PORT);
   { Don't use device before ipcon is connected }
 
-  { Get current pressure (unit is Pa) }
+  { Get current pressure }
   pressure := p.GetPressure;
   WriteLn(Format('Pressure: %f kPa', [pressure/1000.0]));
 

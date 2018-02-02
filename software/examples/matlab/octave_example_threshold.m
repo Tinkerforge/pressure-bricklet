@@ -17,14 +17,14 @@ function octave_example_threshold()
     % Register pressure reached callback to function cb_pressure_reached
     p.addPressureReachedCallback(@cb_pressure_reached);
 
-    % Configure threshold for pressure "greater than 10 kPa" (unit is Pa)
+    % Configure threshold for pressure "greater than 10 kPa"
     p.setPressureCallbackThreshold(">", 10*1000, 0);
 
     input("Press key to exit\n", "s");
     ipcon.disconnect();
 end
 
-% Callback function for pressure reached callback (parameter has unit Pa)
+% Callback function for pressure reached callback
 function cb_pressure_reached(e)
     fprintf("Pressure: %g kPa\n", e.pressure/1000.0);
 end

@@ -23,7 +23,7 @@ function octave_example_callback()
     ipcon.disconnect();
 end
 
-% Callback function for pressure callback (parameter has unit Pa)
+% Callback function for pressure callback
 function cb_pressure(e)
     fprintf("Pressure: %g kPa\n", e.pressure/1000.0);
 end

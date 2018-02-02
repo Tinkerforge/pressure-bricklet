@@ -16,7 +16,7 @@ p = BrickletPressure.new UID, ipcon # Create device object
 ipcon.connect HOST, PORT # Connect to brickd
 # Don't use device before ipcon is connected
 
-# Get current pressure (unit is Pa)
+# Get current pressure
 pressure = p.get_pressure
 puts "Pressure: #{pressure/1000.0} kPa"
 

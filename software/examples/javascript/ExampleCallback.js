@@ -25,7 +25,7 @@ ipcon.on(Tinkerforge.IPConnection.CALLBACK_CONNECTED,
 
 // Register pressure callback
 p.on(Tinkerforge.BrickletPressure.CALLBACK_PRESSURE,
-    // Callback function for pressure callback (parameter has unit Pa)
+    // Callback function for pressure callback
     function (pressure) {
         console.log('Pressure: ' + pressure/1000.0 + ' kPa');
     }

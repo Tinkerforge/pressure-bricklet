@@ -7,7 +7,7 @@ class Example
 	private static int PORT = 4223;
 	private static string UID = "XYZ"; // Change XYZ to the UID of your Pressure Bricklet
 
-	// Callback function for pressure reached callback (parameter has unit Pa)
+	// Callback function for pressure reached callback
 	static void PressureReachedCB(BrickletPressure sender, int pressure)
 	{
 		Console.WriteLine("Pressure: " + pressure/1000.0 + " kPa");
@@ -27,7 +27,7 @@ class Example
 		// Register pressure reached callback to function PressureReachedCB
 		p.PressureReachedCallback += PressureReachedCB;
 
-		// Configure threshold for pressure "greater than 10 kPa" (unit is Pa)
+		// Configure threshold for pressure "greater than 10 kPa"
 		p.SetPressureCallbackThreshold('>', 10*1000, 0);
 
 		Console.WriteLine("Press enter to exit");

@@ -7,7 +7,7 @@ use constant HOST => 'localhost';
 use constant PORT => 4223;
 use constant UID => 'XYZ'; # Change XYZ to the UID of your Pressure Bricklet
 
-# Callback subroutine for pressure reached callback (parameter has unit Pa)
+# Callback subroutine for pressure reached callback
 sub cb_pressure_reached
 {
     my ($pressure) = @_;
@@ -27,7 +27,7 @@ $p->set_debounce_period(10000);
 # Register pressure reached callback to subroutine cb_pressure_reached
 $p->register_callback($p->CALLBACK_PRESSURE_REACHED, 'cb_pressure_reached');
 
-# Configure threshold for pressure "greater than 10 kPa" (unit is Pa)
+# Configure threshold for pressure "greater than 10 kPa"
 $p->set_pressure_callback_threshold('>', 10*1000, 0);
 
 print "Press key to exit\n";

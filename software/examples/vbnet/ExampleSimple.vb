@@ -13,7 +13,7 @@ Module ExampleSimple
         ipcon.Connect(HOST, PORT) ' Connect to brickd
         ' Don't use device before ipcon is connected
 
-        ' Get current pressure (unit is Pa)
+        ' Get current pressure
         Dim pressure As Integer = p.GetPressure()
         Console.WriteLine("Pressure: " + (pressure/1000.0).ToString() + " kPa")
 

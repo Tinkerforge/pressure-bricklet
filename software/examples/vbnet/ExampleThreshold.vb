@@ -6,7 +6,7 @@ Module ExampleThreshold
     Const PORT As Integer = 4223
     Const UID As String = "XYZ" ' Change XYZ to the UID of your Pressure Bricklet
 
-    ' Callback subroutine for pressure reached callback (parameter has unit Pa)
+    ' Callback subroutine for pressure reached callback
     Sub PressureReachedCB(ByVal sender As BrickletPressure, ByVal pressure As Integer)
         Console.WriteLine("Pressure: " + (pressure/1000.0).ToString() + " kPa")
     End Sub
@@ -24,7 +24,7 @@ Module ExampleThreshold
         ' Register pressure reached callback to subroutine PressureReachedCB
         AddHandler p.PressureReachedCallback, AddressOf PressureReachedCB
 
-        ' Configure threshold for pressure "greater than 10 kPa" (unit is Pa)
+        ' Configure threshold for pressure "greater than 10 kPa"
         p.SetPressureCallbackThreshold(">"C, 10*1000, 0)
 
         Console.WriteLine("Press key to exit")

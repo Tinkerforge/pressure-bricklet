@@ -24,7 +24,7 @@ const
 var
   e: TExample;
 
-{ Callback procedure for pressure reached callback (parameter has unit Pa) }
+{ Callback procedure for pressure reached callback }
 procedure TExample.PressureReachedCB(sender: TBrickletPressure; const pressure: longint);
 begin
   WriteLn(Format('Pressure: %f kPa', [pressure/1000.0]));
@@ -48,7 +48,7 @@ begin
   { Register pressure reached callback to procedure PressureReachedCB }
   p.OnPressureReached := {$ifdef FPC}@{$endif}PressureReachedCB;
 
-  { Configure threshold for pressure "greater than 10 kPa" (unit is Pa) }
+  { Configure threshold for pressure "greater than 10 kPa" }
   p.SetPressureCallbackThreshold('>', 10*1000, 0);
 
   WriteLn('Press key to exit');

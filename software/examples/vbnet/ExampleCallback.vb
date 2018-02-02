@@ -6,7 +6,7 @@ Module ExampleCallback
     Const PORT As Integer = 4223
     Const UID As String = "XYZ" ' Change XYZ to the UID of your Pressure Bricklet
 
-    ' Callback subroutine for pressure callback (parameter has unit Pa)
+    ' Callback subroutine for pressure callback
     Sub PressureCB(ByVal sender As BrickletPressure, ByVal pressure As Integer)
         Console.WriteLine("Pressure: " + (pressure/1000.0).ToString() + " kPa")
     End Sub

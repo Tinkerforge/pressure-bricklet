@@ -3,7 +3,7 @@
 
 uid=XYZ # Change XYZ to the UID of your Pressure Bricklet
 
-# Handle incoming pressure callbacks (parameter has unit Pa)
+# Handle incoming pressure callbacks
 tinkerforge dispatch pressure-bricklet $uid pressure &
 
 # Set period for pressure callback to 1s (1000ms)

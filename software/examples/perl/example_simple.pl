@@ -13,7 +13,7 @@ my $p = Tinkerforge::BrickletPressure->new(&UID, $ipcon); # Create device object
 $ipcon->connect(&HOST, &PORT); # Connect to brickd
 # Don't use device before ipcon is connected
 
-# Get current pressure (unit is Pa)
+# Get current pressure
 my $pressure = $p->get_pressure();
 print "Pressure: " . $pressure/1000.0 . " kPa\n";
 

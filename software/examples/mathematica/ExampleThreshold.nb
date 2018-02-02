@@ -22,12 +22,12 @@ Notebook[{
    RowBox[{"p", "@", RowBox[{"SetDebouncePeriod", "[", "10000", "]"}]}],
    RowBox[{"
 "}],
-   RowBox[{"(*", "Callback function for pressure reached callback (parameter has unit Pa)", "*)"}],
+   RowBox[{"(*", "Callback function for pressure reached callback", "*)"}],
    RowBox[{RowBox[{"PressureReachedCB", "[", RowBox[{"sender_", ",", "pressure_"}], "]"}], ":=", "\[IndentingNewLine]", RowBox[{"Print", "[", RowBox[{"\"\<Pressure: \>\"", "<>", RowBox[{"ToString", "[", RowBox[{"N", "[", RowBox[{"Quantity", "[", RowBox[{"pressure", ",", "\"\<kPa/1000\>\""}], "]"}], "]"}], "]"}]}], "]"}]}],
    RowBox[{"AddEventHandler", "[", RowBox[{RowBox[{"p", "@", "PressureReachedCallback"}], ",", "PressureReachedCB"}], "]"}],
    RowBox[{"
 "}],
-   RowBox[{"(*", "Configure threshold for pressure ", "\"\<greater than 10 kPa\>\"", " (unit is Pa)", "*)"}],
+   RowBox[{"(*", "Configure threshold for pressure ", "\"\<greater than 10 kPa\>\"", "", "*)"}],
    RowBox[{"option", "=", "Tinkerforge`BrickletPressure`THRESHOLDUOPTIONUGREATER"}],
    RowBox[{"p", "@", RowBox[{"SetPressureCallbackThreshold", "[", RowBox[{"option", ",", RowBox[{"10", "*", "1000"}], ",", "0"}], "]"}]}],
    RowBox[{"

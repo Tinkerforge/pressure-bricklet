@@ -17,7 +17,7 @@ public class ExampleSimple {
 		ipcon.connect(HOST, PORT); // Connect to brickd
 		// Don't use device before ipcon is connected
 
-		// Get current pressure (unit is Pa)
+		// Get current pressure
 		int pressure = p.getPressure(); // Can throw com.tinkerforge.TimeoutException
 		System.out.println("Pressure: " + pressure/1000.0 + " kPa");
 

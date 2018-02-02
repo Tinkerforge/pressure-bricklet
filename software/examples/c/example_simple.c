@@ -23,7 +23,7 @@ int main(void) {
 	}
 	// Don't use device before ipcon is connected
 
-	// Get current pressure (unit is Pa)
+	// Get current pressure
 	int32_t pressure;
 	if(pressure_get_pressure(&p, &pressure) < 0) {
 		fprintf(stderr, "Could not get pressure, probably timeout\n");

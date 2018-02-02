@@ -12,7 +12,7 @@ function matlab_example_simple()
     ipcon.connect(HOST, PORT); % Connect to brickd
     % Don't use device before ipcon is connected
 
-    % Get current pressure (unit is Pa)
+    % Get current pressure
     pressure = p.getPressure();
     fprintf('Pressure: %g kPa\n', pressure/1000.0);
 

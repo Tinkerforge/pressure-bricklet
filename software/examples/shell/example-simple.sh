@@ -3,5 +3,5 @@
 
 uid=XYZ # Change XYZ to the UID of your Pressure Bricklet
 
-# Get current pressure (unit is Pa)
+# Get current pressure
 tinkerforge call pressure-bricklet $uid get-pressure

@@ -15,7 +15,7 @@ if __name__ == "__main__":
     ipcon.connect(HOST, PORT) # Connect to brickd
     # Don't use device before ipcon is connected
 
-    # Get current pressure (unit is Pa)
+    # Get current pressure
     pressure = p.get_pressure()
     print("Pressure: " + str(pressure/1000.0) + " kPa")
 

@@ -20,14 +20,14 @@ public class ExampleThreshold {
 		// Get threshold callbacks with a debounce time of 10 seconds (10000ms)
 		p.setDebouncePeriod(10000);
 
-		// Add pressure reached listener (parameter has unit Pa)
+		// Add pressure reached listener
 		p.addPressureReachedListener(new BrickletPressure.PressureReachedListener() {
 			public void pressureReached(int pressure) {
 				System.out.println("Pressure: " + pressure/1000.0 + " kPa");
 			}
 		});
 
-		// Configure threshold for pressure "greater than 10 kPa" (unit is Pa)
+		// Configure threshold for pressure "greater than 10 kPa"
 		p.setPressureCallbackThreshold('>', 10*1000, 0);
 
 		System.out.println("Press key to exit"); System.in.read();

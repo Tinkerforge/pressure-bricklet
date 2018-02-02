@@ -8,7 +8,7 @@ UID = "XYZ" # Change XYZ to the UID of your Pressure Bricklet
 from tinkerforge.ip_connection import IPConnection
 from tinkerforge.bricklet_pressure import BrickletPressure
 
-# Callback function for pressure reached callback (parameter has unit Pa)
+# Callback function for pressure reached callback
 def cb_pressure_reached(pressure):
     print("Pressure: " + str(pressure/1000.0) + " kPa")
 
@@ -25,7 +25,7 @@ if __name__ == "__main__":
     # Register pressure reached callback to function cb_pressure_reached
     p.register_callback(p.CALLBACK_PRESSURE_REACHED, cb_pressure_reached)
 
-    # Configure threshold for pressure "greater than 10 kPa" (unit is Pa)
+    # Configure threshold for pressure "greater than 10 kPa"
     p.set_pressure_callback_threshold(">", 10*1000, 0)
 
     raw_input("Press key to exit\n") # Use input() in Python 3

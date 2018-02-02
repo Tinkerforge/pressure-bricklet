@@ -6,10 +6,10 @@ uid=XYZ # Change XYZ to the UID of your Pressure Bricklet
 # Get threshold callbacks with a debounce time of 10 seconds (10000ms)
 tinkerforge call pressure-bricklet $uid set-debounce-period 10000
 
-# Handle incoming pressure reached callbacks (parameter has unit Pa)
+# Handle incoming pressure reached callbacks
 tinkerforge dispatch pressure-bricklet $uid pressure-reached &
 
-# Configure threshold for pressure "greater than 10 kPa" (unit is Pa)
+# Configure threshold for pressure "greater than 10 kPa"
 tinkerforge call pressure-bricklet $uid set-pressure-callback-threshold threshold-option-greater 10000 0
 
 echo "Press key to exit"; read dummy

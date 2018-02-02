@@ -19,14 +19,14 @@ ipcon.on(Tinkerforge.IPConnection.CALLBACK_CONNECTED,
         // Get threshold callbacks with a debounce time of 10 seconds (10000ms)
         p.setDebouncePeriod(10000);
 
-        // Configure threshold for pressure "greater than 10 kPa" (unit is Pa)
+        // Configure threshold for pressure "greater than 10 kPa"
         p.setPressureCallbackThreshold('>', 10*1000, 0);
     }
 );
 
 // Register pressure reached callback
 p.on(Tinkerforge.BrickletPressure.CALLBACK_PRESSURE_REACHED,
-    // Callback function for pressure reached callback (parameter has unit Pa)
+    // Callback function for pressure reached callback
     function (pressure) {
         console.log('Pressure: ' + pressure/1000.0 + ' kPa');
     }

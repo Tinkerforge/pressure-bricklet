@@ -7,7 +7,7 @@ use constant HOST => 'localhost';
 use constant PORT => 4223;
 use constant UID => 'XYZ'; # Change XYZ to the UID of your Pressure Bricklet
 
-# Callback subroutine for pressure callback (parameter has unit Pa)
+# Callback subroutine for pressure callback
 sub cb_pressure
 {
     my ($pressure) = @_;

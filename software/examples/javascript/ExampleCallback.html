@@ -50,7 +50,7 @@
 
                 // Register pressure callback
                 p.on(Tinkerforge.BrickletPressure.CALLBACK_PRESSURE,
-                    // Callback function for pressure callback (parameter has unit Pa)
+                    // Callback function for pressure callback
                     function (pressure) {
                         textArea.value += 'Pressure: ' + pressure/1000.0 + ' kPa\n';
                         textArea.scrollTop = textArea.scrollHeight;

@@ -16,7 +16,7 @@ p = BrickletPressure.new UID, ipcon # Create device object
 ipcon.connect HOST, PORT # Connect to brickd
 # Don't use device before ipcon is connected
 
-# Register pressure callback (parameter has unit Pa)
+# Register pressure callback
 p.register_callback(BrickletPressure::CALLBACK_PRESSURE) do |pressure|
   puts "Pressure: #{pressure/1000.0} kPa"
 end

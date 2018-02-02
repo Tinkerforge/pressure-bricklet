@@ -24,7 +24,7 @@ const
 var
   e: TExample;
 
-{ Callback procedure for pressure callback (parameter has unit Pa) }
+{ Callback procedure for pressure callback }
 procedure TExample.PressureCB(sender: TBrickletPressure; const pressure: longint);
 begin
   WriteLn(Format('Pressure: %f kPa', [pressure/1000.0]));

@@ -16,7 +16,7 @@ ipcon.connect(HOST, PORT,
 
 ipcon.on(Tinkerforge.IPConnection.CALLBACK_CONNECTED,
     function (connectReason) {
-        // Get current pressure (unit is Pa)
+        // Get current pressure
         p.getPressure(
             function (pressure) {
                 console.log('Pressure: ' + pressure/1000.0 + ' kPa');

@@ -19,12 +19,12 @@ ipcon.connect HOST, PORT # Connect to brickd
 # Get threshold callbacks with a debounce time of 10 seconds (10000ms)
 p.set_debounce_period 10000
 
-# Register pressure reached callback (parameter has unit Pa)
+# Register pressure reached callback
 p.register_callback(BrickletPressure::CALLBACK_PRESSURE_REACHED) do |pressure|
   puts "Pressure: #{pressure/1000.0} kPa"
 end
 
-# Configure threshold for pressure "greater than 10 kPa" (unit is Pa)
+# Configure threshold for pressure "greater than 10 kPa"
 p.set_pressure_callback_threshold '>', 10*1000, 0
 
 puts 'Press key to exit'

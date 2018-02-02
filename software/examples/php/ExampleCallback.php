@@ -10,7 +10,7 @@ const HOST = 'localhost';
 const PORT = 4223;
 const UID = 'XYZ'; // Change XYZ to the UID of your Pressure Bricklet
 
-// Callback function for pressure callback (parameter has unit Pa)
+// Callback function for pressure callback
 function cb_pressure($pressure)
 {
     echo "Pressure: " . $pressure/1000.0 . " kPa\n";

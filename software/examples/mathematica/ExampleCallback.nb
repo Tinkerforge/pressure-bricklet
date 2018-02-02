@@ -18,7 +18,7 @@ Notebook[{
    RowBox[{"ipcon", "@", RowBox[{"Connect", "[", RowBox[{"host", ",", "port"}], "]"}]}],
    RowBox[{"
 "}],
-   RowBox[{"(*", "Callback function for pressure callback (parameter has unit Pa)", "*)"}],
+   RowBox[{"(*", "Callback function for pressure callback", "*)"}],
    RowBox[{RowBox[{"PressureCB", "[", RowBox[{"sender_", ",", "pressure_"}], "]"}], ":=", "\[IndentingNewLine]", RowBox[{"Print", "[", RowBox[{"\"\<Pressure: \>\"", "<>", RowBox[{"ToString", "[", RowBox[{"N", "[", RowBox[{"Quantity", "[", RowBox[{"pressure", ",", "\"\<kPa/1000\>\""}], "]"}], "]"}], "]"}]}], "]"}]}],
    RowBox[{"AddEventHandler", "[", RowBox[{RowBox[{"p", "@", "PressureCallback"}], ",", "PressureCB"}], "]"}],
    RowBox[{"

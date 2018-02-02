@@ -10,7 +10,7 @@ const HOST = 'localhost';
 const PORT = 4223;
 const UID = 'XYZ'; // Change XYZ to the UID of your Pressure Bricklet
 
-// Callback function for pressure reached callback (parameter has unit Pa)
+// Callback function for pressure reached callback
 function cb_pressureReached($pressure)
 {
     echo "Pressure: " . $pressure/1000.0 . " kPa\n";
@@ -28,7 +28,7 @@ $p->setDebouncePeriod(10000);
 // Register pressure reached callback to function cb_pressureReached
 $p->registerCallback(BrickletPressure::CALLBACK_PRESSURE_REACHED, 'cb_pressureReached');
 
-// Configure threshold for pressure "greater than 10 kPa" (unit is Pa)
+// Configure threshold for pressure "greater than 10 kPa"
 $p->setPressureCallbackThreshold('>', 10*1000, 0);
 
 echo "Press ctrl+c to exit\n";

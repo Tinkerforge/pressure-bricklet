@@ -7,7 +7,7 @@
 #define PORT 4223
 #define UID "XYZ" // Change XYZ to the UID of your Pressure Bricklet
 
-// Callback function for pressure reached callback (parameter has unit Pa)
+// Callback function for pressure reached callback
 void cb_pressure_reached(int32_t pressure, void *user_data) {
 	(void)user_data; // avoid unused parameter warning
 
@@ -39,7 +39,7 @@ int main(void) {
 	                           (void *)cb_pressure_reached,
 	                           NULL);
 
-	// Configure threshold for pressure "greater than 10 kPa" (unit is Pa)
+	// Configure threshold for pressure "greater than 10 kPa"
 	pressure_set_pressure_callback_threshold(&p, '>', 10*1000, 0);
 
 	printf("Press key to exit\n");

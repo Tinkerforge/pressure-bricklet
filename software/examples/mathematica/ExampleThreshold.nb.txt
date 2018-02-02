@@ -13,12 +13,12 @@ ipcon@Connect[host,port]
 (*Get threshold callbacks with a debounce time of 10 seconds (10000ms)*)
 p@SetDebouncePeriod[10000]
 
-(*Callback function for pressure reached callback (parameter has unit Pa)*)
+(*Callback function for pressure reached callback*)
 PressureReachedCB[sender_,pressure_]:=
  Print["Pressure: "<>ToString[N[Quantity[pressure,"kPa/1000"]]]]
 AddEventHandler[p@PressureReachedCallback,PressureReachedCB]
 
-(*Configure threshold for pressure "greater than 10 kPa" (unit is Pa)*)
+(*Configure threshold for pressure "greater than 10 kPa"*)
 option=Tinkerforge`BrickletPressure`THRESHOLDUOPTIONUGREATER
 p@SetPressureCallbackThreshold[option,10*1000,0]
 

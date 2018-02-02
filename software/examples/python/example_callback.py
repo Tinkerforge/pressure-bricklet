@@ -8,7 +8,7 @@ UID = "XYZ" # Change XYZ to the UID of your Pressure Bricklet
 from tinkerforge.ip_connection import IPConnection
 from tinkerforge.bricklet_pressure import BrickletPressure
 
-# Callback function for pressure callback (parameter has unit Pa)
+# Callback function for pressure callback
 def cb_pressure(pressure):
     print("Pressure: " + str(pressure/1000.0) + " kPa")
 

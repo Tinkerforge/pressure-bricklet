@@ -10,7 +10,7 @@ ipcon=NETNew["Tinkerforge.IPConnection"]
 p=NETNew["Tinkerforge.BrickletPressure",uid,ipcon]
 ipcon@Connect[host,port]
 
-(*Callback function for pressure callback (parameter has unit Pa)*)
+(*Callback function for pressure callback*)
 PressureCB[sender_,pressure_]:=
  Print["Pressure: "<>ToString[N[Quantity[pressure,"kPa/1000"]]]]
 AddEventHandler[p@PressureCallback,PressureCB]
