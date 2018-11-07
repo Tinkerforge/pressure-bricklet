@@ -1,21 +1,21 @@
 use std::{error::Error, io};
 
-use tinkerforge::{ipconnection::IpConnection, pressure_bricklet::*};
+use tinkerforge::{ip_connection::IpConnection, pressure_bricklet::*};
 
-const HOST: &str = "127.0.0.1";
+const HOST: &str = "localhost";
 const PORT: u16 = 4223;
-const UID: &str = "XYZ"; // Change XYZ to the UID of your Pressure Bricklet
+const UID: &str = "XYZ"; // Change XYZ to the UID of your Pressure Bricklet.
 
 fn main() -> Result<(), Box<dyn Error>> {
-    let ipcon = IpConnection::new(); // Create IP connection
-    let pressure_bricklet = PressureBricklet::new(UID, &ipcon); // Create device object
+    let ipcon = IpConnection::new(); // Create IP connection.
+    let p = PressureBricklet::new(UID, &ipcon); // Create device object.
 
-    ipcon.connect(HOST, PORT).recv()??; // Connect to brickd
-                                        // Don't use device before ipcon is connected
+    ipcon.connect((HOST, PORT)).recv()??; // Connect to brickd.
+                                          // Don't use device before ipcon is connected.
 
-    // Get current pressure
-    let pressure = pressure_bricklet.get_pressure().recv()?;
-    println!("Pressure: {}{}", pressure as f32 / 1000.0, " kPa");
+    // Get current pressure.
+    let pressure = p.get_pressure().recv()?;
+    println!("Pressure: {} kPa", pressure as f32 / 1000.0);
 
     println!("Press enter to exit.");
     let mut _input = String::new();
