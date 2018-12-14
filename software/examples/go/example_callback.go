@@ -19,7 +19,7 @@ func main() {
 	// Don't use device before ipcon is connected.
 
 	p.RegisterPressureCallback(func(pressure int32) {
-		fmt.Printf("Pressure: %d kPa\n", float64(pressure)/1000.0)
+		fmt.Printf("Pressure: %f kPa\n", float64(pressure)/1000.0)
 	})
 
 	// Set period for pressure receiver to 1s (1000ms).

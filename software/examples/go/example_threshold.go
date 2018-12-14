@@ -22,7 +22,7 @@ func main() {
 	p.SetDebouncePeriod(10000)
 
 	p.RegisterPressureReachedCallback(func(pressure int32) {
-		fmt.Printf("Pressure: %d kPa\n", float64(pressure)/1000.0)
+		fmt.Printf("Pressure: %f kPa\n", float64(pressure)/1000.0)
 	})
 
 	// Configure threshold for pressure "greater than 10 kPa".
