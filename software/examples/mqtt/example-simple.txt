@@ -2,5 +2,5 @@
 
 setup:
 	# Get current pressure
-	subscribe to tinkerforge/response/pressure/XYZ/get_pressure
+	subscribe to tinkerforge/response/pressure_bricklet/XYZ/get_pressure
 	publish '' to tinkerforge/request/pressure_bricklet/XYZ/get_pressure 

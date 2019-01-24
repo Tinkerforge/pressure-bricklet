@@ -4,6 +4,7 @@ setup:
 	# Handle incoming pressure callbacks
 	subscribe to tinkerforge/callback/pressure_bricklet/XYZ/pressure
 	publish '{"register": true}' to tinkerforge/register/pressure_bricklet/XYZ/pressure # Register pressure callback
+	
 	# Set period for pressure callback to 1s (1000ms)
 	# Note: The pressure callback is only called every second
 	#       if the pressure has changed since the last call!
