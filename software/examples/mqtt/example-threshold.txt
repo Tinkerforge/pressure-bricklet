@@ -1,0 +1,12 @@
+
+
+# Change XYZ to the UID of your Pressure Bricklet
+
+setup:
+	# Get threshold callbacks with a debounce time of 10 seconds (10000ms)
+	publish '{"debounce": 10000}' to tinkerforge/request/pressure_bricklet/XYZ/set_debounce_period
+	# Handle incoming pressure reached callbacks
+	subscribe to tinkerforge/callback/pressure_bricklet/XYZ/pressure_reached
+	publish '{"register": true}' to tinkerforge/register/pressure_bricklet/XYZ/pressure_reached # Register pressure_reached callback
+	# Configure threshold for pressure "greater than 10 kPa"
+	publish '{"option": "greater", "min_pressure": 10000, "max_pressure": 0}' to tinkerforge/request/pressure_bricklet/XYZ/set_pressure_callback_threshold
