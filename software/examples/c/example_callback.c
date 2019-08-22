@@ -33,7 +33,7 @@ int main(void) {
 	// Register pressure callback to function cb_pressure
 	pressure_register_callback(&p,
 	                           PRESSURE_CALLBACK_PRESSURE,
-	                           (void *)cb_pressure,
+	                           (void (*)(void))cb_pressure,
 	                           NULL);
 
 	// Set period for pressure callback to 1s (1000ms)

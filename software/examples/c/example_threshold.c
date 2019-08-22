@@ -36,7 +36,7 @@ int main(void) {
 	// Register pressure reached callback to function cb_pressure_reached
 	pressure_register_callback(&p,
 	                           PRESSURE_CALLBACK_PRESSURE_REACHED,
-	                           (void *)cb_pressure_reached,
+	                           (void (*)(void))cb_pressure_reached,
 	                           NULL);
 
 	// Configure threshold for pressure "greater than 10 kPa"
